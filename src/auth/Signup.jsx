@@ -38,7 +38,16 @@ class Signup extends Component {
         { headers }
       )
       .then((response) => {
-        console.log("res from signup", response);
+        console.log(response);
+        if (response.data.sessionToken) {
+          const { user, sessionToken } = response.data
+          localStorage.setItem("token", JSON.stringify(sessionToken))
+          localStorage.setItem("user", JSON.stringify(user));
+
+        }
+        console.log(response.data.sessionToken)
+        
+       return response.data;
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);

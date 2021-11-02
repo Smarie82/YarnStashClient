@@ -4,12 +4,17 @@ import axios from "axios";
 
 
 class Login extends Component {
+
+  userData;
+
   constructor(props) {
     super(props);
 
-    this.state = { fullname: "", email: "", password: "" };
+    this.state = { fullname: "", email: "", password: "", sessionToken: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.onChangeEmail = this.onChangeEmail.bind(this);
+    this.onChangePassword = this.onChangePassword.bind(this);
   }
 
   handleChange(event) {
@@ -18,11 +23,21 @@ class Login extends Component {
     });
   }
 
+  onChangeEmail(e) {
+    this.setState({ email: e.target.value})
+  }
+
+  onChangePassword(e) {
+    this.setState({ password: e.target.value})
+  }
+
   handleSubmit(event) {
     console.log("login submitted");
     event.preventDefault();
-    const headers = { "Content-Type": "application/json" };
-    const { email, password } = this.state;
+    const { email, password, sessionToken } = this.state;
+    const headers = { "Content-Type": "application/json",Authorization: this.props.sessionToken };
+   
+  
 
     axios
 
@@ -32,17 +47,45 @@ class Login extends Component {
           user: {
             email: email,
             password: password,
+            sessionToken: sessionToken
           },
         },
         { headers }
       )
       .then((response) => {
-        console.log("res from login", response);
+        console.log(response.data)
+        if (response.data.sessionToken) {
+          const { user, sessionToken } = response.data
+          localStorage.setItem("token", JSON.stringify(sessionToken))
+          localStorage.setItem("user", JSON.stringify(user));
+
+        }
+        console.log(response.data.sessionToken)
+        
+       return response.data;
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
       });
-  }
+    }
+
+    // componentDidMount() {
+    //   this.userData = JSON.parse(localStorage.getItem('user'));
+
+    //   if (localStorage.getItem('user')) {
+    //     this.setState({
+    //       email: this.userData.email,
+    //       password: this.userData.password,
+    //       sessionToken: this.userData.sessionToken
+    //     })
+    //   }
+    // }
+
+    componentDidUpdate(nextProps, nextState) {
+      localStorage.setItem('user', JSON.stringify(nextState))
+    }
+
+  
 
   render() {
     return (
@@ -54,10 +97,7 @@ class Login extends Component {
               Email
             </Label>
             <Input
-              onChange={this.handleChange}
-              ref={(ref) => {
-                this.email = ref;
-              }}
+              onChange={this.onChangeEmail}
               type="email"
               name="email"
               placeholder="Enter your email here"
@@ -70,10 +110,7 @@ class Login extends Component {
               Password
             </Label>
             <Input
-              onChange={this.handleChange}
-              ref={(ref) => {
-                this.password = ref;
-              }}
+              onChange={this.onChangePassword}
               type="password"
               name="password"
               placeholder="Enter your password here"
