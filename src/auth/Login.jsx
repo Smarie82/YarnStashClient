@@ -5,7 +5,6 @@ import axios from "axios";
 
 class Login extends Component {
 
-  userData;
 
   constructor(props) {
     super(props);
@@ -55,10 +54,9 @@ class Login extends Component {
       .then((response) => {
         console.log(response.data)
         if (response.data.sessionToken) {
-          const { user, sessionToken } = response.data
-          localStorage.setItem("token", JSON.stringify(sessionToken))
-          localStorage.setItem("user", JSON.stringify(user));
-
+          
+          localStorage.setItem("token", response.data.sessionToken)
+        
         }
         console.log(response.data.sessionToken)
         
@@ -68,23 +66,6 @@ class Login extends Component {
         console.error("ERROR! Look at it!", error);
       });
     }
-
-    // componentDidMount() {
-    //   this.userData = JSON.parse(localStorage.getItem('user'));
-
-    //   if (localStorage.getItem('user')) {
-    //     this.setState({
-    //       email: this.userData.email,
-    //       password: this.userData.password,
-    //       sessionToken: this.userData.sessionToken
-    //     })
-    //   }
-    // }
-
-    componentDidUpdate(nextProps, nextState) {
-      localStorage.setItem('user', JSON.stringify(nextState))
-    }
-
   
 
   render() {

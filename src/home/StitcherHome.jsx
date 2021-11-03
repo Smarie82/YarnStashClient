@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import YarnIndex from "../YarnStash/YarnIndex.jsx";
-import PatternCreate from "../PatternStash/PatternCreate";
+import PatternIndex from "../PatternStash/PatternIndex";
+import { Route, Switch } from 'react-router';
 
 
 
@@ -12,9 +13,12 @@ class Home extends Component {
     render() { 
         return ( 
             <div>
+               
+
                 <h1>Stitcher Home</h1>
                 <YarnIndex token={this.props.token}/>
-                <PatternCreate token={this.state.token} />
+                <PatternIndex token={this.props.token} />
+
             </div>
          );
     }

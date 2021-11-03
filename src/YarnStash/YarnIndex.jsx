@@ -1,34 +1,42 @@
 import React, { Component, useState, useEffect } from 'react'
 import { Container, Col, Row } from 'reactstrap';
-import axios from 'axios';
+
 import YarnCreate from "../YarnStash/YarnCreate";
 
-const YarnIndex = (props) => {
-    const [yarns, setYarns] = useState([]);
+class YarnIndex extends Component {
+   constructor(props) {
+       super(props);
+       this.state = { index: "" }
+   }
 
-    const fetchYarns = () => {
+    fetchYarns() {
+        const token = localStorage.getItem("token");
         fetch('http://localhost:3000/yarn/', {
             method: 'GET',
             headers: new Headers({
                 "Content-Type": "application/json",
-                Authorization: props.token,
+                Authorization: token,
         })
         }).then(res => res.json())
-            .then(yarnData => { setYarns(yarnData); console.log(yarnData) })
+            .then((yarnData) => {
+                console.log(yarnData)
+                this.setState({ index: yarnData.message })
+            })
     }
 
-    // useEffect(() => {
-    //     fetchYarns();
-    // })
-    
+    componentDidMount() {
+        this.fetchYarns();
+    }
+
+        render() { 
         return ( 
             <Container>
                 <Col>
-                    <YarnCreate fetchYarns={fetchYarns} token={props.token} />
+                    <YarnCreate fetchYarns={this.fetchYarns} />
                 </Col>
             </Container>
          );
-    
+    }
 }
  
 export default YarnIndex;
