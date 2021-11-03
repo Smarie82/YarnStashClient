@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-
 import YarnStashNav from "./home/Navbar";
 import Auth from "./auth/Auth";
 import Home from "./home/StitcherHome";
 import { Component, useEffect, useState } from "react";
+
 
 
 function App() {
@@ -22,10 +22,10 @@ function App() {
     console.log(sessionToken);
   };
 
-  // const clearToken = () => {
-  //   localStorage.clear();
-  //   setSessionToken('');
-  // }
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken('');
+  }
 
   const protectedViews = () => {
     return (sessionToken === localStorage.getItem('token') ? <Home token={sessionToken}/>
@@ -36,8 +36,8 @@ function App() {
     <div>
       <Router>
         
-          <YarnStashNav />
-        <Auth />
+          <YarnStashNav clickLogout={clearToken}/>
+      
         <Switch> 
         {protectedViews()}
         </Switch>

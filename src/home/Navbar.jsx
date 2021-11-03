@@ -19,12 +19,12 @@ import { Collapse,
         super(props);
 
         this.state = { NavBar: "" }
-        // this.handleLogout = this.handleLogout.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
       }
 
-      // handleLogout() {
-      //   this.props.handleLogout();
-      // }
+      handleLogout() {
+        this.props.handleLogout();
+      }
 
       
 
@@ -61,7 +61,7 @@ import { Collapse,
                   </UncontrolledDropdown>
                 </Nav>
                 <NavbarText>Simple Text</NavbarText>
-                {/* <Button onClick={() => this.handleLogout()}>Logout</Button> */}
+                <Button onClick={this.handleLogout}>Logout</Button>
               </Collapse>
             </Navbar>
           </div>
