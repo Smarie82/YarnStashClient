@@ -1,6 +1,8 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Redirect } from 'react-router-dom'
 import axios from "axios";
+import Home from "../home/StitcherHome"
 
 
 class Login extends Component {
@@ -14,6 +16,9 @@ class Login extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
     this.onChangePassword = this.onChangePassword.bind(this);
+    // this.state = { redirect: false };
+    
+    
   }
 
   handleChange(event) {
@@ -30,47 +35,52 @@ class Login extends Component {
     this.setState({ password: e.target.value})
   }
 
+  
   handleSubmit(event) {
     console.log("login submitted");
     event.preventDefault();
     const { email, password, sessionToken } = this.state;
     const headers = { "Content-Type": "application/json",Authorization: this.props.sessionToken };
-   
-  
-
+    
     axios
-
-      .post(
-        "http://localhost:3000/user/login",
-        {
-          user: {
-            email: email,
-            password: password,
-            sessionToken: sessionToken
-          },
+    
+    .post(
+      "http://localhost:3000/user/login",
+      {
+        user: {
+          email: email,
+          password: password,
+          sessionToken: sessionToken
         },
-        { headers }
+      },
+      { headers }
       )
       .then((response) => {
         console.log(response.data)
         if (response.data.sessionToken) {
           
           localStorage.setItem("token", response.data.sessionToken)
-        
-        }
+          
+        } 
         console.log(response.data.sessionToken)
         
-       return response.data;
+        
+        return response.data;
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
-      });
+      })
+      // .then(() => this.setState({ redirect: true }));
     }
-  
-
-  render() {
-    return (
-      <div>
+    
+    
+    render() {
+      // const { redirect } = this.state;
+      // if (redirect) {
+      //   return <Redirect to='/home' />
+      // }
+      return (
+        <div>
         <h1>Login</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -99,7 +109,9 @@ class Login extends Component {
               required
             />
           </FormGroup>
+          
           <Button type="submit">Login</Button>
+          
         </Form>
       </div>
     );

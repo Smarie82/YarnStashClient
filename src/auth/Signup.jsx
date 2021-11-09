@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Redirect } from 'react-router-dom'
 import axios from "axios";
 
 class Signup extends Component {
@@ -9,6 +10,7 @@ class Signup extends Component {
     this.state = { fullname: "", email: "", password: "", role: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    // this.state = { redirect: false };
   }
 
   handleChange(event) {
@@ -51,10 +53,15 @@ class Signup extends Component {
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
-      });
+      })
+      // .then(() => this.setState({ redirect: true }));
   }
 
   render() {
+    // const { redirect } =this.state;
+    //   if (redirect) {
+    //     return <Redirect to='/home' />
+    //   }
     return (
       <div>
         <h1>Sign Up</h1>

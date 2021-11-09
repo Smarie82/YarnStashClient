@@ -14,18 +14,18 @@ class PatternCreate extends Component {
     super(props);
     this.state = { project: "", status: "", stitcher: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
+//   handleChange(event) {
+//     this.setState({
+//       [event.target.name]: event.target.value,
+//     });
+//   }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     const token = localStorage.getItem("token");
 
     fetch("http://localhost:3000/pattern/create", {
@@ -45,6 +45,8 @@ class PatternCreate extends Component {
       .then((response) => response.json())
       .then((patternData) => {
         console.log(patternData);
+        //this.props.fetchPatterns()
+        window.location.reload()
       });
   }
 
@@ -53,6 +55,7 @@ class PatternCreate extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup row>
+              <h1>Stash your Patterns here!</h1>
             <Label for="project" sm={2}>
               Project
             </Label>
@@ -61,7 +64,9 @@ class PatternCreate extends Component {
                 type="text"
                 name="project"
                 value={this.state.project}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                    project: e.target.value,
+                  })}
                 placeholder="Project goes here"
               />
             </Col>
@@ -75,7 +80,9 @@ class PatternCreate extends Component {
                 type="text"
                 name="status"
                 value={this.state.status}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                    status: e.target.value,
+                  })}
                 placeholder="Status of Project goes here"
               />
             </Col>

@@ -18,50 +18,52 @@ import { Collapse,
       constructor(props) {
         super(props);
 
-        this.state = { NavBar: "" }
-        this.handleLogout = this.handleLogout.bind(this);
+        this.state = { isActive: false };
+        
+        
       }
 
-      handleLogout() {
-        this.props.handleLogout();
-      }
+      logout() {
+        localStorage.clear();
+        window.location.href = '/';
+    }
 
-      
+      handleToggle() {
+        this.setState({ isActive: !this.state.isActive });
+      }
 
        render () {    
         return ( 
             <div>
             <Navbar color="light" light expand="md">
               <NavbarBrand href="/">YarnStash</NavbarBrand>
-              <NavbarToggler />
+              <NavbarToggler onClick={this.handleToggle} />
               <Collapse navbar>
                 <Nav className="mr-auto" navbar>
-                  <NavItem>
-                    <NavLink href="/components/">Components</NavLink>
-                  </NavItem>
-                  <NavItem>
-                    <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
-                  </NavItem>
+                 
                   <UncontrolledDropdown nav inNavbar>
                     <DropdownToggle nav caret>
-                      Options
+                      My Stash
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>
-                        Option 1
+                        Yarn Stash
                       </DropdownItem>
                       <DropdownItem>
-                        Option 2
+                        Pattern Stash
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
-                        Reset
+                        Home
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
+                  <NavItem>
+                    <NavLink href="/about/">About YarnStash</NavLink>
+                  </NavItem>
                 </Nav>
-                <NavbarText>Simple Text</NavbarText>
-                <Button onClick={this.handleLogout}>Logout</Button>
+               
+                <Button onClick={this.logout}>Logout</Button>
               </Collapse>
             </Navbar>
           </div>

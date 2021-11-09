@@ -22,18 +22,18 @@ class YarnCreate extends Component {
       stitcher: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    // this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
+  // handleChange(event) {
+  //   this.setState({
+  //     [event.target.name]: event.target.value,
+  //   });
+  // }
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     const token = localStorage.getItem("token");
 
     fetch("http://localhost:3000/yarn/create", {
@@ -57,6 +57,7 @@ class YarnCreate extends Component {
       .then((res) => res.json())
       .then((yarnData) => {
         console.log(yarnData);
+        window.location.reload()
       });
   }
 
@@ -65,6 +66,7 @@ class YarnCreate extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup row>
+            <h1>Stash your Yarn here!</h1>
             <Label for="brand" sm={2}>
               Yarn Brand
             </Label>
@@ -73,7 +75,9 @@ class YarnCreate extends Component {
                 type="text"
                 name="brand"
                 value={this.state.brand}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  brand: e.target.value,
+                })}
                 placeholder="Yarn Brand here"
               />
             </Col>
@@ -87,7 +91,9 @@ class YarnCreate extends Component {
                 type="text"
                 name="color"
                 value={this.state.color}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  color: e.target.value,
+                })}
                 placeholder="yarn color here"
               />
             </Col>
@@ -101,7 +107,9 @@ class YarnCreate extends Component {
                 type="select"
                 name="weight"
                 value={this.state.weight}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  weight: e.target.value,
+                })}
               >
                 <option>0 - Lace</option>
                 <option>1 - Super Fine</option>
@@ -123,7 +131,9 @@ class YarnCreate extends Component {
                 type="number"
                 name="length"
                 value={this.state.length}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  length: e.target.value,
+                })}
                 placeholder="Yarn length here"
               />
             </Col>
@@ -137,7 +147,9 @@ class YarnCreate extends Component {
                 type="number"
                 name="quantity"
                 value={this.state.quantity}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  quantity: e.target.value,
+                })}
                 placeholder="quantity of skiens here"
               />
             </Col>
@@ -151,7 +163,9 @@ class YarnCreate extends Component {
                 type="number"
                 name="bin"
                 value={this.state.bin}
-                onChange={this.handleChange}
+                onChange={(e) => this.setState({
+                  bin: e.target.value,
+                })}
                 placeholder="bin assignment here"
               />
             </Col>
