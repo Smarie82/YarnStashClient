@@ -1,17 +1,20 @@
 import "./App.css";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import YarnStashNav from "./home/Navbar";
 import Auth from "./auth/Auth";
-import Home from "./home/StitcherHome";
+import Home from "./home/Home";
 import Header from "./home/Header";
-import Login from "./auth/Login";
-import { Component, useEffect, useState } from "react";
-
-
+import Footer from "./home/Footer";
+import { useEffect, useState } from "react";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
-  
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       setSessionToken(localStorage.getItem("token"));
@@ -24,22 +27,27 @@ function App() {
     console.log(sessionToken);
   };
 
-
   const protectedViews = () => {
-    return sessionToken === localStorage.getItem('token') ? ( <Home token={sessionToken}/>
-      ) : (
-      <Auth updateToken={updateToken}/>)
-  }
-  
+    return sessionToken === localStorage.getItem("token") ? (
+      <Home token={sessionToken} />
+    ) : (
+      <Auth updateToken={updateToken} />
+    );
+  };
+
   return (
     <div>
-      <Router>
-          <YarnStashNav  />
-        
+      <Router> 
+      <Switch>
+          <YarnStashNav />
+        <Route exact path="/home">
+        <Home />
+        </Route>
+      </Switch>
         {protectedViews()}
-      </Router>
-     
+        </Router>
 
+        <Footer />
     </div>
   );
 }

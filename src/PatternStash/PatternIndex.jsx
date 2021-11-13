@@ -33,7 +33,8 @@ class PatternIndex extends Component {
                 <Container>
                     <Col>
                 <PatternCreate fetchPatterns={this.fetchPatterns} />
-                {this.state.index.length > 0 ? <PatternTable index={this.state.index} fetchPatterns={this.fetchPatterns} /> : null}
+                {this.state.index.length > 0 ? 
+                <PatternTable index={this.state.index} fetchPatterns={this.fetchPatterns} /> : null}
                 
                     </Col>
                 </Container>

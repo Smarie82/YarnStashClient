@@ -1,0 +1,35 @@
+body {
+    background-image: linear-gradient(to top, #2fd194, #5bd9a5, #7be0b6, #98e7c6, #b4eed6, #c2f1de, #d1f4e6, #dff7ee, #e4f7f0, #eaf8f3, #eff8f5, #f5f8f7);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.header-line {
+    font-family: HotRestaurant;
+    color: #2F4858;
+}
+
+.body-text {
+    font-family: 'Roboto', sans-serif;
+    color: #2F4858;
+    font-weight: bold;
+}
+
+.header-font-size {
+    font-size: 350%;
+}
+
+.other-font-size {
+    font-size: 100%;
+}
+
+.body-font-size {
+    font-size: 130%;
+}
+
+/* Footer styling */
+
+.pad-foot {
+    margin-top: 5%;
+}

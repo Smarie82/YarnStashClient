@@ -26,6 +26,7 @@ class PatternDelete extends Component {
         console.log(this.props.pattern)
         return ( <div>
             <Button
+            className='header-line'
               color="danger"
               onClick={() => this.deletePattern()}
             >

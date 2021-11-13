@@ -1,23 +1,19 @@
-import React, { Component, Fragment } from "react";
+import React from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Redirect } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom';
 import axios from "axios";
-import Home from "../home/StitcherHome"
+import "../assets/main.css";
+import Home from '../home/Home';
 
-
-class Login extends Component {
-
+class Login extends React.Component {
 
   constructor(props) {
     super(props);
 
-    this.state = { fullname: "", email: "", password: "", sessionToken: "" };
+    this.state = { };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangePassword = this.onChangePassword.bind(this);
-    // this.state = { redirect: false };
-    
+    // this.routeChange = this.routeChange.bind(this);
     
   }
 
@@ -27,14 +23,18 @@ class Login extends Component {
     });
   }
 
-  onChangeEmail(e) {
-    this.setState({ email: e.target.value})
-  }
+  routeChange = () => {
+    this.props.history.push("/")
+  };
 
-  onChangePassword(e) {
-    this.setState({ password: e.target.value})
-  }
+  // routeChange() {
+  //   localStorage.getItem("token")
+  //   window.location.href = {Home};
+  // }
 
+  // routeChange() {
+  //   <Redirect to="/" />
+  // }
   
   handleSubmit(event) {
     console.log("login submitted");
@@ -70,47 +70,52 @@ class Login extends Component {
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
       })
-      // .then(() => this.setState({ redirect: true }));
+   
     }
     
     
     render() {
-      // const { redirect } = this.state;
-      // if (redirect) {
-      //   return <Redirect to='/home' />
-      // }
+     
       return (
         <div>
-        <h1>Login</h1>
+        <h1 className="header-line">Login</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="email" className="mr-sm-2">
+            <Label for="email" className="mr-sm-2 header-line">
               Email
             </Label>
             <Input
-              onChange={this.onChangeEmail}
+              className="body-text"
+              onChange={this.handleChange}
               type="email"
               name="email"
               placeholder="Enter your email here"
-              value={this.state.email}
+              value={this.state.value}
               required
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="password" className="mr-sm-2">
+            <Label for="password" className="mr-sm-2 header-line">
               Password
             </Label>
             <Input
-              onChange={this.onChangePassword}
+              className="body-text"
+              onChange={this.handleChange}
               type="password"
               name="password"
               placeholder="Enter your password here"
-              value={this.state.password}
+              value={this.state.value}
               required
             />
           </FormGroup>
           
-          <Button type="submit">Login</Button>
+              <Button type="submit" 
+              onClick={this.routeChange}
+              color="transparent"
+              className="header-line">
+                {/* <Redirect to="/" /> */}
+                <Link to="/">Login</Link>
+                Login</Button>
           
         </Form>
       </div>
@@ -118,4 +123,5 @@ class Login extends Component {
   }
 }
 
-export default Login;
+
+export default withRouter (Login);

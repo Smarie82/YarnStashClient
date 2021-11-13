@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'HotRestaurant';
+  src: local('HotRestaurant'), url(./assets/HotRestaurant.ttf) format ('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: local('Roboto-Thin'), url(./assets/Roboto-Thin.ttf) format ('truetype');
+}

@@ -9,6 +9,7 @@ import {
   Button,
 } from "reactstrap";
 
+
 class YarnCreate extends Component {
   constructor(props) {
     super(props);
@@ -184,7 +185,9 @@ class YarnCreate extends Component {
           </FormGroup>
           <Button type="submit">Stash Yarn!</Button>
         </Form>
+        
       </div>
+    
     );
   }
 }

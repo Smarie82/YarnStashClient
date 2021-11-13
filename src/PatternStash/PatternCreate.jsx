@@ -5,7 +5,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
   Button,
 } from "reactstrap";
 
@@ -55,7 +54,7 @@ class PatternCreate extends Component {
       <div>
         <Form onSubmit={this.handleSubmit}>
           <FormGroup row>
-              <h1>Stash your Patterns here!</h1>
+              <h1 className='header-line'>Stash your Patterns here!</h1>
             <Label for="project" sm={2}>
               Project
             </Label>

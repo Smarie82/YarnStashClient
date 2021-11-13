@@ -10,17 +10,16 @@ import { Collapse,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    NavbarText,
     Button
   } from 'reactstrap';
+  import yarnstashlogo from "../assets/Yarnstash2.png";
+  import '../assets/main.css';
 
     class YarnStashNav extends Component {
       constructor(props) {
         super(props);
 
         this.state = { isActive: false };
-        
-        
       }
 
       logout() {
@@ -36,34 +35,34 @@ import { Collapse,
         return ( 
             <div>
             <Navbar color="light" light expand="md">
-              <NavbarBrand href="/">YarnStash</NavbarBrand>
+              <NavbarBrand href="/"><img src={yarnstashlogo} alt='yarnlogo' className="logo-img" /></NavbarBrand>
               <NavbarToggler onClick={this.handleToggle} />
               <Collapse navbar>
-                <Nav className="mr-auto" navbar>
+                <Nav className="mr-auto dropdown-format" navbar>
                  
                   <UncontrolledDropdown nav inNavbar>
-                    <DropdownToggle nav caret>
+                    <DropdownToggle nav caret className="body-text">
                       My Stash
                     </DropdownToggle>
                     <DropdownMenu right>
-                      <DropdownItem>
+                      <DropdownItem className="body-text">
                         Yarn Stash
                       </DropdownItem>
-                      <DropdownItem>
+                      <DropdownItem className="body-text">
                         Pattern Stash
                       </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem>
+                      <DropdownItem className="body-text">
                         Home
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
                   <NavItem>
-                    <NavLink href="/about/">About YarnStash</NavLink>
+                    <NavLink href="/about/" className="body-text">About</NavLink>
                   </NavItem>
                 </Nav>
                
-                <Button onClick={this.logout}>Logout</Button>
+                <Button onClick={this.logout} className="header-line" color="transparent">Logout</Button>
               </Collapse>
             </Navbar>
           </div>
