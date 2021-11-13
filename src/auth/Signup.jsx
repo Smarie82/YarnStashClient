@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Redirect } from 'react-router-dom'
 import axios from "axios";
 
 class Signup extends Component {
@@ -9,6 +10,7 @@ class Signup extends Component {
     this.state = { fullname: "", email: "", password: "", role: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.state = { redirect: false };
   }
 
   handleChange(event) {
@@ -51,19 +53,25 @@ class Signup extends Component {
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
-      });
+      })
+      .then(() => this.setState({ redirect: true }));
   }
 
   render() {
+    const { redirect } =this.state;
+      if (redirect) {
+        return <Redirect to='/home' />
+      }
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h1 className="header-line">Sign Up</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="fullname" className="mr-sm-2">
+            <Label for="fullname" className="mr-sm-2 header-line" >
               Full Name
             </Label>
             <Input
+              className="body-text"
               onChange={this.handleChange}
               ref={(ref) => {
                 this.fullname = ref;
@@ -76,10 +84,11 @@ class Signup extends Component {
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="email" className="mr-sm-2">
+            <Label for="email" className="mr-sm-2 header-line">
               Email
             </Label>
             <Input
+             className="body-text"
               onChange={this.handleChange}
               ref={(ref) => {
                 this.email = ref;
@@ -92,10 +101,11 @@ class Signup extends Component {
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="password" className="mr-sm-2">
+            <Label for="password" className="mr-sm-2 header-line">
               Password
             </Label>
             <Input
+              className="body-text"
               onChange={this.handleChange}
               ref={(ref) => {
                 this.password = ref;
@@ -107,7 +117,8 @@ class Signup extends Component {
               required
             />
           </FormGroup>
-          <Button type="submit">Signup</Button>
+          <Button className="header-line" 
+         color="tranparent" type="submit">Signup</Button>
         </Form>
       </div>
     );

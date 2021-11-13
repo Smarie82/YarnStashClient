@@ -1,7 +1,7 @@
-import React, { Component, useState, useEffect } from 'react'
-import { Container, Col, Row } from 'reactstrap';
-
+import React, { Component } from 'react'
+import { Container, Col} from 'reactstrap';
 import YarnCreate from "../YarnStash/YarnCreate";
+import YarnTable from "../YarnStash/YarnTable";
 
 class YarnIndex extends Component {
    constructor(props) {
@@ -20,7 +20,7 @@ class YarnIndex extends Component {
         }).then(res => res.json())
             .then((yarnData) => {
                 console.log(yarnData)
-                this.setState({ index: yarnData.message })
+                this.setState({ index: yarnData })
             })
     }
 
@@ -33,6 +33,7 @@ class YarnIndex extends Component {
             <Container>
                 <Col>
                     <YarnCreate fetchYarns={this.fetchYarns} />
+                    {this.state.index.length > 0 ? <YarnTable index={this.state.index} fetchYarns={this.fetchYarns} /> : null}
                 </Col>
             </Container>
          );

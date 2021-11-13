@@ -1,0 +1,139 @@
+import React, { Component } from "react";
+import {
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter
+} from "reactstrap";
+
+class PatternEdit extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      modal: false,
+      // project: this.props.pattern.project,
+      // status: this.props.pattern.status,
+    };
+  }
+
+  toggle = (e) => {
+    this.setState({ modal: !this.state.modal })
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      value: event.target.value
+    })
+  }
+
+
+  patternUpdate = (e) => {
+    //console.log(this.props.pattern.id)
+    let id = this.props.pattern.id
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    // const editProject = this.props.patternEdit.project;
+    // const editStatus = this.props.patternEdit.status;
+    fetch(`http://localhost:3000/pattern/update/${id}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        pattern: {
+          project: this.state.project,
+          status: this.state.status,
+        },
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json",
+        Authorization: token,
+      }),
+    }).then((res) => {
+      //this.props.fetchPatterns();
+      this.toggle();
+      console.log();
+      window.location.reload();
+    });
+  }
+
+  render() {
+    console.log(this.props.pattern.id)
+    console.log(this.props.pattern)
+    return (
+      <div>
+        <Button color="info" className='header-line' onClick={this.toggle}>Update</Button>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} >
+          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+          <ModalBody>
+            <Form onSubmit={this.patternUpdate}>
+              <FormGroup>
+                <Label htmlFor="project">Edit Project:</Label>
+                <Input
+                  name="project"
+                  defaultValue={this.props.pattern.project}
+                  onChange={(e) => this.setState({project : e.target.value})}
+                />
+              </FormGroup>
+              <FormGroup>
+                <Label htmlFor="status">Edit Status:</Label>
+                <Input
+                name="status"
+                defaultValue={this.props.pattern.status}
+                onChange={(e) => this.setState({status : e.target.value})}
+                />
+              </FormGroup>
+              <Button className="btn-pdf" type="submit">
+                Click to Submit Changes
+            </Button>{" "}
+              {/* <Button className="btn-cancel" closebutton="true">
+              Cancel
+            </Button>  */}
+            </Form>
+          </ModalBody>
+          <ModalFooter>
+            {/* <Button color="primary" type="submit" onClick={this.toggle}>Submit Changes</Button>{' '} */}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+        {/* <Button className='header-line' color="info" onClick={e => this.openModal()}>
+                Update
+              </Button>
+      <Modal show={this.state.isOpen} toggle={this.openModal} >
+        <ModalHeader className='header-line'>Edit Pattern</ModalHeader>
+        <ModalBody>
+          <Form onSubmit={this.patternUpdate}>
+            <FormGroup>
+              <Label htmlFor="project">Edit Project:</Label>
+              <Input
+                name="project"
+                value={this.state.project}
+                onChange={this.handleChange}
+                />
+            </FormGroup>
+            <FormGroup>
+              <Label htmlFor="status">Edit Status:</Label>
+              <Input
+                name="status"
+                value={this.state.status}
+                onChange={this.handleChange}
+                />
+            </FormGroup>
+            <Button className="btn-pdf" type="submit">
+              Click to Submit Changes
+            </Button>{" "}
+            <Button className="btn-cancel" closebutton="true">
+              Cancel
+            </Button>
+          </Form>
+        </ModalBody>
+      </Modal> */}
+      </div>
+    );
+
+  }
+}
+
+export default PatternEdit;

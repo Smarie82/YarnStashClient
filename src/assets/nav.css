@@ -1,0 +1,15 @@
+.logo-img {
+  max-width: 80%;
+  width: 30%;
+  padding-top: 1%;
+  padding-left: 2%;
+  padding-right: 9px;
+}
+
+nav {
+  background-color: #c2f1de; 
+}
+
+.dropdown-format {
+  margin-left: -55%;
+}
