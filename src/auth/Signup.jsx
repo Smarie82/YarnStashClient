@@ -29,7 +29,7 @@ class Signup extends Component {
     axios
 
       .post(
-        `${APIURL}/signup`,
+        `${APIURL}/user/signup`,
         {
           user: {
             fullname: fullname,
