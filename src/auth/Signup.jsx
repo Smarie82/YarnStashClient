@@ -35,7 +35,7 @@ class Signup extends Component {
             fullname: fullname,
             email: email,
             password: password,
-            role: role
+            role: "user"
           },
         },
         { headers }
