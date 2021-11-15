@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Col } from 'reactstrap';
 import PatternCreate from './PatternCreate';
 import PatternTable from "./PatternTable";
+import APIURL from '../helpers/environment';
 class PatternIndex extends Component {
     constructor(props) {
         super(props);
@@ -10,7 +11,7 @@ class PatternIndex extends Component {
 
     fetchPatterns() {
         const token = localStorage.getItem("token");
-        fetch("http://localhost:3000/pattern/getAll", {
+        fetch(`${APIURL}/pattern/getAll`, {
             method: "GET",
             headers: new Headers({
                 "Content-Type": "application/json",

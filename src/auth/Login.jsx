@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link, withRouter } from 'react-router-dom';
 import axios from "axios";
 import "../assets/main.css";
+import APIURL from '../helpers/environment';
 // import Home from '../home/Home';
 
 class Login extends React.Component {
@@ -45,7 +46,7 @@ class Login extends React.Component {
     axios
     
     .post(
-      "http://localhost:3000/user/login",
+      `${APIURL}/user/login`,
       {
         user: {
           email: email,

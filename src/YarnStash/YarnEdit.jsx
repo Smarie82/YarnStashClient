@@ -11,6 +11,7 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 class YarnEdit extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ class YarnEdit extends Component {
     const token = localStorage.getItem("token");
     // const editProject = this.props.patternEdit.project;
     // const editStatus = this.props.patternEdit.status;
-    fetch(`http://localhost:3000/yarn/update/${id}`, {
+    fetch(`${APIURL}/yarn/update/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         pattern: {

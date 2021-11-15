@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Redirect } from 'react-router-dom'
 import axios from "axios";
+import APIURL from '../helpers/environment';
 
 class Signup extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class Signup extends Component {
     axios
 
       .post(
-        "http://localhost:3000/user/signup",
+        `${APIURL}/signup`,
         {
           user: {
             fullname: fullname,

@@ -7,6 +7,7 @@ import {
   Input,
   Button,
 } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 class PatternCreate extends Component {
   constructor(props) {
@@ -27,7 +28,7 @@ class PatternCreate extends Component {
     // console.log(this.state);
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/pattern/create", {
+    fetch(`${APIURL}/pattern/create`, {
       method: "POST",
       body: JSON.stringify({
         pattern: {

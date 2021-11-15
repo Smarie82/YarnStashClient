@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {  Button } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 class PatternDelete extends Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class PatternDelete extends Component {
     deletePattern() {
         const token = localStorage.getItem("token");
         // console.log(this.props.pattern)
-        fetch(`http://localhost:3000/pattern/delete/${this.props.pattern.id}`, {
+        fetch(`${APIURL}/pattern/delete/${this.props.pattern.id}`, {
                 method: "DELETE",
                 headers: new Headers({
                         "Content-Type": "application/json",

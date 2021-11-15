@@ -10,6 +10,7 @@ import {
   ModalBody,
   ModalFooter
 } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 class PatternEdit extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class PatternEdit extends Component {
     const token = localStorage.getItem("token");
     // const editProject = this.props.patternEdit.project;
     // const editStatus = this.props.patternEdit.status;
-    fetch(`http://localhost:3000/pattern/update/${id}`, {
+    fetch(`${APIURL}/pattern/update/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         pattern: {

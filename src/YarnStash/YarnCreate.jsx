@@ -8,6 +8,7 @@ import {
   FormText,
   Button,
 } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 
 class YarnCreate extends Component {
@@ -37,7 +38,7 @@ class YarnCreate extends Component {
     // console.log(this.state);
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/yarn/create", {
+    fetch(`${APIURL}/yarn/create`, {
       method: "POST",
       body: JSON.stringify({
         yarn: {

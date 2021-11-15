@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Button } from "reactstrap";
+import APIURL from '../helpers/environment';
 
 class YarnDelete extends Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class YarnDelete extends Component {
   deleteYarn() {
     const token = localStorage.getItem("token");
     // console.log(this.props.yarn);
-    fetch(`http://localhost:3000/yarn/delete/${this.props.yarn.id}`, {
+    fetch(`${APIURL}/yarn/delete/${this.props.yarn.id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",

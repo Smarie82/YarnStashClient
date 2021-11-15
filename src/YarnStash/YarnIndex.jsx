@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Container, Col} from 'reactstrap';
 import YarnCreate from "../YarnStash/YarnCreate";
 import YarnTable from "../YarnStash/YarnTable";
+import APIURL from '../helpers/environment';
 
 class YarnIndex extends Component {
    constructor(props) {
@@ -11,7 +12,7 @@ class YarnIndex extends Component {
 
     fetchYarns() {
         const token = localStorage.getItem("token");
-        fetch('http://localhost:3000/yarn/', {
+        fetch(`${APIURL}/yarn/`, {
             method: 'GET',
             headers: new Headers({
                 "Content-Type": "application/json",
