@@ -52,13 +52,13 @@ class PatternCreate extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form className="body-text" onSubmit={this.handleSubmit}>
           <FormGroup row>
               <h1 className='header-line'>Stash your Patterns here!</h1>
             <Label for="project" sm={2}>
               Project
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="text"
                 name="project"
@@ -74,7 +74,7 @@ class PatternCreate extends Component {
             <Label for="status" sm={2}>
               Project Status
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="text"
                 name="status"
@@ -86,7 +86,7 @@ class PatternCreate extends Component {
               />
             </Col>
           </FormGroup>
-          <Button type="submit">Stash Project!</Button>
+          <Button className="header-line btn-stash" type="submit">Stash Project!</Button>
         </Form>
       </div>
     );

@@ -1,11 +1,12 @@
 import React from "react";
-import { Table } from "reactstrap";
-import PatternCreate from "./PatternCreate";
 import PatternDelete from "./PatternDelete";
 import PatternEdit from "./PatternEdit";
-import { Card, Container, Row, Col } from "react-bootstrap";
-import { Button } from 'reactstrap';
+// import { Card, Container, Row, Col } from "react-bootstrap";
 import { Component } from "react";
+import {
+  Card, CardTitle, CardText, CardDeck,
+   CardBody, CardFooter,
+} from 'reactstrap';
 
 class PatternTable extends Component{
  constructor(props) {
@@ -17,28 +18,28 @@ class PatternTable extends Component{
   patternMapper(pattern) {
     return this.props.index.map((pattern, index) => {
       return (
-        <div key={index}>
-          <Container> 
-            <Row md={4}> 
-            <Col>
-        <Card  border="info" style={{ width: "15rem" }}>
-          <Card.Header>Pattern: {pattern.project}</Card.Header>
-          <Card.Body>
-            <Card.Text>Status: {pattern.status}</Card.Text>
-            
-          </Card.Body>
-          <PatternEdit pattern={pattern} fetchPatterns={this.props.fetchPatterns} /> 
+        <div key={index}  >
+          <br />
           
-          <PatternDelete pattern={pattern} />
-          {/* <Button
-            color="warning"
-          >
-            Update
-          </Button> */}
-        </Card> 
-        </Col>
-        </Row>
-        </Container>
+         <CardDeck>
+
+        <Card className="body-text" outline color="info" style={{ width: "15rem" }}>
+          <CardBody>
+          <CardTitle>
+            Pattern: 
+             <a target="_blank" rel="noopener noreferrer" href={pattern.project}>{pattern.project}</a>
+            </CardTitle>
+            <CardText>Status: {pattern.status}</CardText>
+            
+          </CardBody>
+          <CardFooter style={{flex: 2, flexDirection: 'row'}} > 
+          <PatternEdit  pattern={pattern} fetchPatterns={this.props.fetchPatterns} /> 
+          <PatternDelete  pattern={pattern} />
+          </CardFooter>
+        </Card>
+         </CardDeck>
+      
+       <br />
       </div>
       );
     });
@@ -49,30 +50,6 @@ class PatternTable extends Component{
 
     return (
       <div>
-        {/* <Table>
-          <thead>
-            <tr>
-              <th>Pattern</th>
-              <th>Status</th>
-              <th></th>
-            </tr>
-          </thead>
-         <tbody>
-           {props.patterns.map((pattern, id) => {
-             return (
-               <tr key={id}>
-               <th>{pattern.id}</th>
-               <td>{pattern.project}</td>
-               <td>{pattern.status}</td>
-               <Button id={pattern.id} onClick={e =>props.update(e, pattern)}>Update</Button>
-               
-               </tr>
-               )
-              })
-            }
-         </tbody>
-        
-        </Table> */}
           {this.patternMapper()}
       </div>
     );

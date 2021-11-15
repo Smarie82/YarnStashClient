@@ -1,3 +1,24 @@
 .btn-auth {
     height: 55%;
 }
+
+.btn-delete {
+    background-color: #F56B4A !important;
+    border-color: #F56B4A !important;
+    align-items: flex-end !important;
+}
+
+.btn-update {
+    color: white !important;
+    float: inline-end !important;
+}
+
+.btn-stash {
+    background-color: #2fd194 !important;
+    border-color: #2fd194 !important;
+}
+
+/* .btn-align {
+    padding-left: 40% !important;
+    
+} */

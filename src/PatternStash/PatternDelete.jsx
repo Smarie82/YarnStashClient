@@ -9,7 +9,7 @@ class PatternDelete extends Component {
 
     deletePattern() {
         const token = localStorage.getItem("token");
-        console.log(this.props.pattern)
+        // console.log(this.props.pattern)
         fetch(`http://localhost:3000/pattern/delete/${this.props.pattern.id}`, {
                 method: "DELETE",
                 headers: new Headers({
@@ -23,10 +23,10 @@ class PatternDelete extends Component {
             }
 
     render() { 
-        console.log(this.props.pattern)
+        // console.log(this.props.pattern)
         return ( <div>
             <Button
-            className='header-line'
+            className='header-line btn-delete'
               color="danger"
               onClick={() => this.deletePattern()}
             >
