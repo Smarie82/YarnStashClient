@@ -3,14 +3,13 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
 } from "react-router-dom";
 import YarnStashNav from "./home/Navbar";
 import Auth from "./auth/Auth";
 import Home from "./home/Home";
-import Header from "./home/Header";
 import Footer from "./home/Footer";
 import { useEffect, useState } from "react";
+import PatternIndex from "./PatternStash/PatternIndex";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -43,6 +42,7 @@ function App() {
         <Route exact path="/home">
         <Home />
         </Route>
+        <Route path="/patternindex" exact component={PatternIndex} />
       </Switch>
         {protectedViews()}
         </Router>

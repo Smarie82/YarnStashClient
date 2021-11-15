@@ -10,10 +10,12 @@ import { Collapse,
     DropdownToggle,
     DropdownMenu,
     DropdownItem,
-    Button
+    Button,
   } from 'reactstrap';
   import yarnstashlogo from "../assets/Yarnstash2.png";
   import '../assets/main.css';
+  import PatternIndex from "../PatternStash/PatternIndex";
+  import { Link } from 'react-router-dom';
 
     class YarnStashNav extends Component {
       constructor(props) {
@@ -48,8 +50,10 @@ import { Collapse,
                       <DropdownItem className="body-text">
                         Yarn Stash
                       </DropdownItem>
-                      <DropdownItem className="body-text">
-                        Pattern Stash
+                      <DropdownItem className="body-text" >
+                         Pattern Stash 
+                         <Link href="patternindex" ></Link> 
+                         {/* <a  href='/patternindex'>{PatternIndex}</a> */}
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem className="body-text">

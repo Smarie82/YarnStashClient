@@ -9,7 +9,7 @@ class YarnDelete extends Component {
 
   deleteYarn() {
     const token = localStorage.getItem("token");
-    console.log(this.props.yarn);
+    // console.log(this.props.yarn);
     fetch(`http://localhost:3000/yarn/delete/${this.props.yarn.id}`, {
       method: "DELETE",
       headers: new Headers({
@@ -23,10 +23,10 @@ class YarnDelete extends Component {
   }
 
   render() {
-    console.log(this.props.yarn);
+    // console.log(this.props.yarn);
     return (
       <div>
-        <Button color="danger" onClick={() => this.deleteYarn()}>
+        <Button className='header-line btn-delete' color="danger" onClick={() => this.deleteYarn()}>
           Delete
         </Button>
       </div>

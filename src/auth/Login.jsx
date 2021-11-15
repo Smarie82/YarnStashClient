@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { Link, withRouter } from 'react-router-dom';
 import axios from "axios";
 import "../assets/main.css";
-import Home from '../home/Home';
+// import Home from '../home/Home';
 
 class Login extends React.Component {
 
@@ -113,8 +113,6 @@ class Login extends React.Component {
               onClick={this.routeChange}
               color="transparent"
               className="header-line">
-                {/* <Redirect to="/" /> */}
-                <Link to="/">Login</Link>
                 Login</Button>
           
         </Form>

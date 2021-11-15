@@ -64,11 +64,10 @@ class YarnEdit extends Component {
   }
 
   render() {
-    console.log(this.props.yarn.id)
-    console.log(this.props.yarn)
+  
     return (
       <div>
-        <Button color="info" className='header-line' onClick={this.toggle}>Update</Button>
+        <Button color="info" className='header-line btn-update' onClick={this.toggle}>Update</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} >
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>

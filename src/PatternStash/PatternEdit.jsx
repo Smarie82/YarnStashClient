@@ -60,11 +60,10 @@ class PatternEdit extends Component {
   }
 
   render() {
-    console.log(this.props.pattern.id)
-    console.log(this.props.pattern)
+
     return (
       <div>
-        <Button color="info" className='header-line' onClick={this.toggle}>Update</Button>
+        <Button color="info" className='header-line btn-update' onClick={this.toggle}>Update</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} >
           <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
           <ModalBody>
@@ -88,48 +87,15 @@ class PatternEdit extends Component {
               <Button className="btn-pdf" type="submit">
                 Click to Submit Changes
             </Button>{" "}
-              {/* <Button className="btn-cancel" closebutton="true">
-              Cancel
-            </Button>  */}
+            
             </Form>
           </ModalBody>
           <ModalFooter>
-            {/* <Button color="primary" type="submit" onClick={this.toggle}>Submit Changes</Button>{' '} */}
+          
             <Button color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-        {/* <Button className='header-line' color="info" onClick={e => this.openModal()}>
-                Update
-              </Button>
-      <Modal show={this.state.isOpen} toggle={this.openModal} >
-        <ModalHeader className='header-line'>Edit Pattern</ModalHeader>
-        <ModalBody>
-          <Form onSubmit={this.patternUpdate}>
-            <FormGroup>
-              <Label htmlFor="project">Edit Project:</Label>
-              <Input
-                name="project"
-                value={this.state.project}
-                onChange={this.handleChange}
-                />
-            </FormGroup>
-            <FormGroup>
-              <Label htmlFor="status">Edit Status:</Label>
-              <Input
-                name="status"
-                value={this.state.status}
-                onChange={this.handleChange}
-                />
-            </FormGroup>
-            <Button className="btn-pdf" type="submit">
-              Click to Submit Changes
-            </Button>{" "}
-            <Button className="btn-cancel" closebutton="true">
-              Cancel
-            </Button>
-          </Form>
-        </ModalBody>
-      </Modal> */}
+     
       </div>
     );
 

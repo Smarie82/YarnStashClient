@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Button, Container, Row, Col, Table } from "reactstrap";
-import YarnCreate from "./YarnCreate";
 import YarnDelete from "./YarnDelete";
-import { Card, CardGroup } from "react-bootstrap";
+import { Card,} from "react-bootstrap";
 import YarnEdit from "./YarnEdit";
 
 class YarnTable extends Component {
@@ -15,8 +13,8 @@ class YarnTable extends Component {
   yarnMapper() {
     return this.props.index.map((yarn, index) => (
       <div key={index}>
-        
-        <Card border="info" style={{ width: "18rem" }}>
+        <br />
+        <Card className="body-text" border="info" style={{ width: "18rem" }}>
           <Card.Header>Brand: {yarn.brand}</Card.Header>
           <Card.Body>
             <Card.Text>Color: {yarn.color}</Card.Text>
@@ -25,16 +23,18 @@ class YarnTable extends Component {
             <Card.Text>Quantity: {yarn.quantity}</Card.Text>
             <Card.Text>Bin Number: {yarn.bin}</Card.Text>
           </Card.Body>
-          <YarnDelete yarn={yarn} />
+          <Card.Footer >
           <YarnEdit yarn={yarn} fetchYarns={this.props.fetchYarns} /> 
+           <YarnDelete yarn={yarn} />
+          </Card.Footer>
         </Card>
-    
+        <br />
       </div>
     ));
   }
 
   render() {
-    console.log(this.props.index);
+    // console.log(this.props.index);
 
     return ( <div>{this.yarnMapper()}</div>
    

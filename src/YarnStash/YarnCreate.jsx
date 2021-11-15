@@ -65,13 +65,13 @@ class YarnCreate extends Component {
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleSubmit}>
+        <Form className="body-text" onSubmit={this.handleSubmit}>
           <FormGroup row>
-            <h1>Stash your Yarn here!</h1>
-            <Label for="brand" sm={2}>
+            <h1 className="header-line">Stash your Yarn here!</h1>
+            <Label  for="brand" sm={2}>
               Yarn Brand
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="text"
                 name="brand"
@@ -87,7 +87,7 @@ class YarnCreate extends Component {
             <Label for="color" sm={2}>
               Yarn Color
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="text"
                 name="color"
@@ -103,7 +103,7 @@ class YarnCreate extends Component {
             <Label for="weight" sm={2}>
               Yarn Weight
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="select"
                 name="weight"
@@ -127,7 +127,7 @@ class YarnCreate extends Component {
             <Label for="length" sm={2}>
               Yarn Length
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="number"
                 name="length"
@@ -143,7 +143,7 @@ class YarnCreate extends Component {
             <Label for="quantity" sm={2}>
               Yarn Quantity
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="number"
                 name="quantity"
@@ -159,7 +159,7 @@ class YarnCreate extends Component {
             <Label for="bin" sm={2}>
               Storage Bin:
             </Label>
-            <Col sm={10}>
+            <Col sm={5}>
               <Input
                 type="number"
                 name="bin"
@@ -171,19 +171,7 @@ class YarnCreate extends Component {
               />
             </Col>
           </FormGroup>
-          <FormGroup row>
-            <Label for="exampleFile" sm={2}>
-              File
-            </Label>
-            <Col sm={10}>
-              <Input type="file" name="file" id="exampleFile" />
-              <FormText color="muted">
-                This is some placeholder block-level help text for the above
-                input. It's a bit lighter and easily wraps to a new line.
-              </FormText>
-            </Col>
-          </FormGroup>
-          <Button type="submit">Stash Yarn!</Button>
+          <Button className="header-line btn-stash" type="submit">Stash Yarn!</Button>
         </Form>
         
       </div>
