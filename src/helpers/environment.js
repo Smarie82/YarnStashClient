@@ -7,9 +7,9 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3000';
         break;
     // this is the deployed react application
-    case 'https://yarnstash-client.herokuapp.com/':
+    case 'yarnstash-client.herokuapp.com':
         // this is the full url of your deployed API
-        APIURL = 'https://yarnstash-client.herokuapp.com/'
+        APIURL = 'https://yarnstash-server.herokuapp.com'
 }
 
 export default APIURL;
