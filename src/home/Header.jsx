@@ -12,16 +12,17 @@ class Header extends Component {
                 <Container>
                     <Row>
                         <Col>
-                        <h1 className='header-line header-font-size'>A place to catalog and organize your yarns and patterns!</h1>
+                        <h1 className='header-line header-font-size'>A place to catalog and organize your yarn and patterns!</h1>
                         <p className="body-text body-font-size">
-                            YarnStash is a place where you can finally get your yarn organized and have one place to keep all of the patterns you want to do (even though we all know it's wishful thinking)! With this system, you can catalog your yarn by brand, color, weight, length and quanitity of skeins with a storage bin assignment so that you know what you have so you are not spending time digging through your stash.  
+                            YarnStash is a place where you can finally get your yarn organized and have one place to keep all of the patterns you want to do! With this App, you can catalog your yarn by brand, color, weight, length and quanitity of skeins with a storage bin assignment so that you know where your yarn is to avoid spending time digging through your stash.  
                         </p>
                         <p className="body-text body-font-size">
-                            Do you have an endless amount of patterns that you have found online with no way to keep track of them? YarnStash also allows you to save links to patterns with a status or note about the project!
+                            Do you have an endless amount of digital patterns? YarnStash also allows you to save links to patterns with a your own note about the project!
                         </p>
-                        <p className="body-text body-font-size">
+                        <h3 className="header-line body-font-size">
                             Sign up today to start your stash! Happy stashing!
-                        </p>
+                        </h3>
+                        <br />
                         </Col>
                     </Row>
                 </Container>

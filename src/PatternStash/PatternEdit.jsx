@@ -17,8 +17,6 @@ class PatternEdit extends Component {
     super(props);
     this.state = {
       modal: false,
-      // project: this.props.pattern.project,
-      // status: this.props.pattern.status,
     };
   }
 
@@ -34,12 +32,9 @@ class PatternEdit extends Component {
 
 
   patternUpdate = (e) => {
-    //console.log(this.props.pattern.id)
     let id = this.props.pattern.id
     e.preventDefault();
     const token = localStorage.getItem("token");
-    // const editProject = this.props.patternEdit.project;
-    // const editStatus = this.props.patternEdit.status;
     fetch(`${APIURL}/pattern/update/${id}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -66,37 +61,38 @@ class PatternEdit extends Component {
       <div>
         <Button color="info" className='header-line btn-update' onClick={this.toggle}>Update</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
+          
+          <ModalBody className="body-text">
             <Form onSubmit={this.patternUpdate}>
-              <FormGroup>
-                <Label htmlFor="project">Edit Project:</Label>
+              <FormGroup row>
+                <Label for="project">Edit Pattern Link:</Label>
                 <Input
                   name="project"
                   defaultValue={this.props.pattern.project}
                   onChange={(e) => this.setState({project : e.target.value})}
                 />
               </FormGroup>
-              <FormGroup>
-                <Label htmlFor="status">Edit Status:</Label>
+              <br />
+              <FormGroup row>
+                <Label for="status">Edit Notes:</Label>
                 <Input
                 name="status"
                 defaultValue={this.props.pattern.status}
                 onChange={(e) => this.setState({status : e.target.value})}
                 />
               </FormGroup>
-              <Button className="btn-pdf" type="submit">
+              <br />
+              <Button color="info" size="lg" className="header-line btn-update" type="submit">
                 Click to Submit Changes
             </Button>{" "}
             
             </Form>
           </ModalBody>
           <ModalFooter>
-          
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+    
+            <Button className="header-line btn-delete" color="secondary" onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
-     
       </div>
     );
 

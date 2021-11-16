@@ -28,6 +28,10 @@ body {
     font-size: 130%;
 }
 
+.text-bold {
+    font-weight: bold;
+}
+
 /* Footer styling */
 
 .pad-foot {

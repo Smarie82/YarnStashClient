@@ -18,7 +18,7 @@ class YarnIndex extends Component {
                 "Content-Type": "application/json",
                 Authorization: token,
         })
-        }).then(res => res.json())
+        }).then((res) => res.json())
             .then((yarnData) => {
                 console.log(yarnData)
                 this.setState({ index: yarnData })

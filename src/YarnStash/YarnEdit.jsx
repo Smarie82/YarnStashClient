@@ -39,8 +39,7 @@ class YarnEdit extends Component {
     let id = this.props.yarn.id
     e.preventDefault();
     const token = localStorage.getItem("token");
-    // const editProject = this.props.patternEdit.project;
-    // const editStatus = this.props.patternEdit.status;
+
     fetch(`${APIURL}/yarn/update/${id}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -69,25 +68,28 @@ class YarnEdit extends Component {
     return (
       <div>
         <Button color="info" className='header-line btn-update' onClick={this.toggle}>Update</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} >
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-          <ModalBody>
-            <Form onSubmit={this.yarnUpdate}>
-              <FormGroup>
-                <Label htmlFor="brand">Edit Brand:</Label>
+        <Modal  isOpen={this.state.modal} toggle={this.toggle} >
+          <ModalBody className='body-text'>
+            <Form  color='info' onSubmit={this.yarnUpdate}>
+              <FormGroup row>
+                <Label for="brand" sm={2}>Edit Brand:</Label>
+                <Col sm={10}>
                 <Input
                   name="brand"
                   defaultValue={this.props.yarn.brand}
                   onChange={(e) => this.setState({brand : e.target.value})}
                 />
+                </Col>
               </FormGroup>
-              <FormGroup>
-                <Label htmlFor="color">Edit Color:</Label>
+              <FormGroup row>
+                <Label for="color" sm={2}>Edit Color:</Label>
+                <Col sm={10}>
                 <Input
                 name="status"
                 defaultValue={this.props.yarn.color}
                 onChange={(e) => this.setState({color : e.target.value})}
                 />
+                </Col>
               </FormGroup>
               <FormGroup row>
             <Label for="weight" sm={2}>
@@ -151,7 +153,7 @@ class YarnEdit extends Component {
               <Input
                 type="number"
                 name="bin"
-                defaultValue={this.state.bin}
+                defaultValue={this.props.yarn.bin}
                 onChange={(e) => this.setState({
                   bin: e.target.value,
                 })}
@@ -159,15 +161,16 @@ class YarnEdit extends Component {
               />
             </Col>
           </FormGroup>
-              <Button className="btn-pdf" type="submit">
+          <br />
+              <Button size="lg" 
+              color="info" className="btn-update header-line" type="submit">
                 Submit Changes
             </Button>{" "}
              
             </Form>
           </ModalBody>
           <ModalFooter>
-          
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button className="header-line btn-delete"  onClick={this.toggle}>Cancel</Button>
           </ModalFooter>
         </Modal>
              

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { Redirect } from 'react-router-dom'
+import { Redirect } from "react-router-dom";
 import axios from "axios";
-import APIURL from '../helpers/environment';
+import APIURL from "../helpers/environment";
 
 class Signup extends Component {
   constructor(props) {
@@ -11,7 +11,6 @@ class Signup extends Component {
     this.state = { fullname: "", email: "", password: "", role: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.state = { redirect: false };
   }
 
   handleChange(event) {
@@ -35,7 +34,7 @@ class Signup extends Component {
             fullname: fullname,
             email: email,
             password: password,
-            role: "user"
+            role: "user",
           },
         },
         { headers }
@@ -43,32 +42,24 @@ class Signup extends Component {
       .then((response) => {
         console.log(response);
         if (response.data.sessionToken) {
-          const { user, sessionToken } = response.data
-          localStorage.setItem("token", JSON.stringify(sessionToken))
-          localStorage.setItem("user", JSON.stringify(user));
-
+          localStorage.setItem("token", response.data.sessionToken);
         }
-        console.log(response.data.sessionToken)
-        
-       return response.data;
+        console.log(response.data.sessionToken);
+        window.location.href = "/";
+        return response.data;
       })
       .catch((error) => {
         console.error("ERROR! Look at it!", error);
-      })
-      .then(() => this.setState({ redirect: true }));
+      });
   }
 
   render() {
-    const { redirect } =this.state;
-      if (redirect) {
-        return <Redirect to='/home' />
-      }
     return (
       <div>
         <h1 className="header-line">Sign Up</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="fullname" className="mr-sm-2 header-line" >
+            <Label for="fullname" className="mr-sm-2 header-line">
               Full Name
             </Label>
             <Input
@@ -89,7 +80,7 @@ class Signup extends Component {
               Email
             </Label>
             <Input
-             className="body-text"
+              className="body-text"
               onChange={this.handleChange}
               ref={(ref) => {
                 this.email = ref;
@@ -118,8 +109,9 @@ class Signup extends Component {
               required
             />
           </FormGroup>
-          <Button className="header-line" 
-         color="tranparent" type="submit">Signup</Button>
+          <Button className="header-line" color="tranparent" type="submit">
+            Signup
+          </Button>
         </Form>
       </div>
     );

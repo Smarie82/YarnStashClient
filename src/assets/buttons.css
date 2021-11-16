@@ -5,12 +5,10 @@
 .btn-delete {
     background-color: #F56B4A !important;
     border-color: #F56B4A !important;
-    align-items: flex-end !important;
 }
 
 .btn-update {
     color: white !important;
-    float: inline-end !important;
 }
 
 .btn-stash {
@@ -18,7 +16,14 @@
     border-color: #2fd194 !important;
 }
 
-/* .btn-align {
-    padding-left: 40% !important;
-    
-} */
+.home-btn {
+    background: none !important;
+    border-color: transparent !important;
+    font-size: 400% !important;
+    padding-right: 10% !important;
+    padding-left: 10% !important;
+}
+
+.btn-drop {
+    text-decoration: none;
+}

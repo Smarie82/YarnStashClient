@@ -5,7 +5,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
   Button,
 } from "reactstrap";
 import APIURL from '../helpers/environment';
@@ -66,11 +65,17 @@ class YarnCreate extends Component {
   render() {
     return (
       <div>
+        <br />
         <Form className="body-text" onSubmit={this.handleSubmit}>
           <FormGroup row>
             <h1 className="header-line">Stash your Yarn here!</h1>
+            <br />
+            <p className="body=text">
+              Fill out the form below to start stashing your yarn!
+            </p>
+            <br />
             <Label  for="brand" sm={2}>
-              Yarn Brand
+              Yarn Brand:
             </Label>
             <Col sm={5}>
               <Input
@@ -86,7 +91,7 @@ class YarnCreate extends Component {
           </FormGroup>
           <FormGroup row>
             <Label for="color" sm={2}>
-              Yarn Color
+              Yarn Color:
             </Label>
             <Col sm={5}>
               <Input
@@ -96,13 +101,13 @@ class YarnCreate extends Component {
                 onChange={(e) => this.setState({
                   color: e.target.value,
                 })}
-                placeholder="yarn color here"
+                placeholder="Yarn Color Here"
               />
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label for="weight" sm={2}>
-              Yarn Weight
+              Yarn Weight:
             </Label>
             <Col sm={5}>
               <Input
@@ -126,7 +131,7 @@ class YarnCreate extends Component {
           </FormGroup>
           <FormGroup row>
             <Label for="length" sm={2}>
-              Yarn Length
+              Yarn Length:
             </Label>
             <Col sm={5}>
               <Input
@@ -136,13 +141,13 @@ class YarnCreate extends Component {
                 onChange={(e) => this.setState({
                   length: e.target.value,
                 })}
-                placeholder="Yarn length here"
+                placeholder="Length of Skein Here"
               />
             </Col>
           </FormGroup>
           <FormGroup row>
             <Label for="quantity" sm={2}>
-              Yarn Quantity
+              Yarn Quantity:
             </Label>
             <Col sm={5}>
               <Input
@@ -152,7 +157,7 @@ class YarnCreate extends Component {
                 onChange={(e) => this.setState({
                   quantity: e.target.value,
                 })}
-                placeholder="quantity of skiens here"
+                placeholder="Quantity of Skiens Here"
               />
             </Col>
           </FormGroup>
@@ -168,13 +173,15 @@ class YarnCreate extends Component {
                 onChange={(e) => this.setState({
                   bin: e.target.value,
                 })}
-                placeholder="bin assignment here"
+                placeholder="Bin Assignment Here - Insert 0 for no assignment"
               />
             </Col>
           </FormGroup>
-          <Button className="header-line btn-stash" type="submit">Stash Yarn!</Button>
+          <br />
+          <Button size="lg" className="header-line btn-stash" type="submit">Stash Yarn!</Button>
+          <br />
         </Form>
-        
+        <br />
       </div>
     
     );

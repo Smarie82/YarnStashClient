@@ -14,18 +14,10 @@ class PatternCreate extends Component {
     super(props);
     this.state = { project: "", status: "", stitcher: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleChange = this.handleChange.bind(this);
   }
-
-//   handleChange(event) {
-//     this.setState({
-//       [event.target.name]: event.target.value,
-//     });
-//   }
 
   handleSubmit(event) {
     event.preventDefault();
-    // console.log(this.state);
     const token = localStorage.getItem("token");
 
     fetch(`${APIURL}/pattern/create`, {
@@ -45,7 +37,6 @@ class PatternCreate extends Component {
       .then((response) => response.json())
       .then((patternData) => {
         console.log(patternData);
-        //this.props.fetchPatterns()
         window.location.reload()
       });
   }
@@ -53,11 +44,18 @@ class PatternCreate extends Component {
   render() {
     return (
       <div>
+        <br />
         <Form className="body-text" onSubmit={this.handleSubmit}>
           <FormGroup row>
+
               <h1 className='header-line'>Stash your Patterns here!</h1>
+              <br />
+              <p className="body-text">
+                Fill out the form below to start stashing you patterns!
+              </p>
+              <br />
             <Label for="project" sm={2}>
-              Project
+              Project Link:
             </Label>
             <Col sm={5}>
               <Input
@@ -67,13 +65,14 @@ class PatternCreate extends Component {
                 onChange={(e) => this.setState({
                     project: e.target.value,
                   })}
-                placeholder="Project goes here"
+                placeholder="Link to Project Here"
               />
             </Col>
           </FormGroup>
+          <br />
           <FormGroup row>
             <Label for="status" sm={2}>
-              Project Status
+              Project Notes:
             </Label>
             <Col sm={5}>
               <Input
@@ -83,12 +82,15 @@ class PatternCreate extends Component {
                 onChange={(e) => this.setState({
                     status: e.target.value,
                   })}
-                placeholder="Status of Project goes here"
+                placeholder="Notes for Project Here"
               />
             </Col>
           </FormGroup>
-          <Button className="header-line btn-stash" type="submit">Stash Project!</Button>
+          <br />
+          <Button size="lg" className="header-line btn-stash" type="submit">Stash Project!</Button>
+          <br />
         </Form>
+        <br />
       </div>
     );
   }

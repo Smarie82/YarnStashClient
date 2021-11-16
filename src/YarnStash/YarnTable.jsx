@@ -1,7 +1,17 @@
 import React, { Component } from "react";
 import YarnDelete from "./YarnDelete";
-import { Card,} from "react-bootstrap";
 import YarnEdit from "./YarnEdit";
+import { Button,
+  Card,
+  CardTitle,
+  CardText,
+  CardDeck,
+  CardBody,
+  CardFooter,
+  Row,
+  Col,
+  Container,
+} from "reactstrap";
 
 class YarnTable extends Component {
   constructor(props) {
@@ -12,32 +22,28 @@ class YarnTable extends Component {
 
   yarnMapper() {
     return this.props.index.map((yarn, index) => (
-      <div key={index}>
-        <br />
-        <Card className="body-text" border="info" style={{ width: "18rem" }}>
-          <Card.Header>Brand: {yarn.brand}</Card.Header>
-          <Card.Body>
-            <Card.Text>Color: {yarn.color}</Card.Text>
-            <Card.Text>Weight: {yarn.weight}</Card.Text>
-            <Card.Text>Length: {yarn.length}</Card.Text>
-            <Card.Text>Quantity: {yarn.quantity}</Card.Text>
-            <Card.Text>Bin Number: {yarn.bin}</Card.Text>
-          </Card.Body>
-          <Card.Footer >
+      
+        <Card key={index} className="body-text" outline color="info" style={{ width: "18rem" }}>
+          <CardBody>
+          <CardText>Brand: {yarn.brand}</CardText>
+            <CardText>Color: {yarn.color}</CardText>
+            <CardText>Weight: {yarn.weight}</CardText>
+            <CardText>Length: {yarn.length}</CardText>
+            <CardText>Quantity: {yarn.quantity}</CardText>
+            <CardText>Bin Number: {yarn.bin}</CardText>
+          </CardBody>
+          <CardFooter style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }} >
           <YarnEdit yarn={yarn} fetchYarns={this.props.fetchYarns} /> 
            <YarnDelete yarn={yarn} />
-          </Card.Footer>
+          </CardFooter>
         </Card>
-        <br />
-      </div>
+       
     ));
   }
 
   render() {
-    // console.log(this.props.index);
-
-    return ( <div>{this.yarnMapper()}</div>
-   
+    return (
+    <CardDeck style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>{this.yarnMapper()}</CardDeck>
     )
   }
 }

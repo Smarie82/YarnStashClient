@@ -10,6 +10,7 @@ import Home from "./home/Home";
 import Footer from "./home/Footer";
 import { useEffect, useState } from "react";
 import PatternIndex from "./PatternStash/PatternIndex";
+import YarnIndex from "./YarnStash/YarnIndex";
 
 function App() {
   const [sessionToken, setSessionToken] = useState("");
@@ -27,7 +28,7 @@ function App() {
   };
 
   const protectedViews = () => {
-    return sessionToken === localStorage.getItem("token") ? (
+    return localStorage.getItem("token") ? (
       <Home token={sessionToken} />
     ) : (
       <Auth updateToken={updateToken} />
@@ -37,14 +38,14 @@ function App() {
   return (
     <div>
       <Router> 
-      <Switch>
           <YarnStashNav />
-        <Route exact path="/home">
-        <Home />
+      <Switch>
+        <Route path="/home" exact component={Home}>
         </Route>
         <Route path="/patternindex" exact component={PatternIndex} />
-      </Switch>
+        <Route path="/yarnindex" exact component={YarnIndex} />
         {protectedViews()}
+      </Switch>
         </Router>
 
         <Footer />
