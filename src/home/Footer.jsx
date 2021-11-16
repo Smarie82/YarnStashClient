@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="pad-foot">
             <Row>
-                <h4 className= "header-line" >&copy; YarnStash <span className='header-line'>2021</span></h4>
+                <h4 className= "header-line" >&copy; YarnStash <span className='header-line'>{new Date().getFullYear()}</span></h4>
             </Row>
         </footer>
     );

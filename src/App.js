@@ -46,6 +46,7 @@ function App() {
         <Route path="/patternindex" exact component={PatternIndex} />
         <Route path="/yarnindex" exact component={YarnIndex} />
         <Route path="/about" exact component={About} />
+      
         {protectedViews()}
       </Switch>
         </Router>

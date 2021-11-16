@@ -1,4 +1,20 @@
 .pen-img {
-    width:30%;
+    width:20%;
     border-radius: 8px;
+    margin-left: 40%;
+}
+
+.signature {
+   
+    text-align: center;
+}
+
+.brand-icons {
+    color: white;
+    padding-left: 2%;
+    
+}
+
+.brand-icon-align {
+    margin-left: 42%;
 }
