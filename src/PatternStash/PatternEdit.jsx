@@ -82,7 +82,7 @@ class PatternEdit extends Component {
                 />
               </FormGroup>
               <br />
-              <Button color="info" size="lg" className="header-line btn-update" type="submit">
+              <Button size="lg" className="header-line btn-update" type="submit">
                 Click to Submit Changes
             </Button>{" "}
             

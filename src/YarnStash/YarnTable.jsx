@@ -23,7 +23,7 @@ class YarnTable extends Component {
   yarnMapper() {
     return this.props.index.map((yarn, index) => (
       
-        <Card key={index} className="body-text" outline color="info" style={{ width: "18rem" }}>
+        <Card key={index} className="body-text" outline  style={{ width: "18rem" }}>
           <CardBody>
           <CardText>Brand: {yarn.brand}</CardText>
             <CardText>Color: {yarn.color}</CardText>

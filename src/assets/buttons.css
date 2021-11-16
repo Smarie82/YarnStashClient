@@ -5,15 +5,19 @@
 .btn-delete {
     background-color: #F56B4A !important;
     border-color: #F56B4A !important;
+    color: white !important;
 }
 
 .btn-update {
+    background-color: #2F4858 !important;
     color: white !important;
+    border: #2F4858 !important;
 }
 
 .btn-stash {
     background-color: #2fd194 !important;
     border-color: #2fd194 !important;
+    color: white !important;
 }
 
 .home-btn {
@@ -22,6 +26,11 @@
     font-size: 400% !important;
     padding-right: 10% !important;
     padding-left: 10% !important;
+}
+.btn-pattern {
+    background-color: #2fd194 !important;
+    border-color: #2fd194 !important;
+    color:white !important;
 }
 
 .btn-drop {

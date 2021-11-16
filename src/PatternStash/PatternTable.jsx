@@ -29,14 +29,12 @@ class PatternTable extends Component {
                  key={index}
                  style={{flex: 1, }}
                   className="body-text"
-                  outline
-                  color="info"
                   style={{ width: "15rem" }}
                 >
                   <CardBody>
                     <CardTitle>
                       <Button
-                      className="header-line"
+                      className="header-line btn-pattern"
                       size="lg"
                       target="_blank"
                       rel="noopener noreferrer"

@@ -163,7 +163,7 @@ class YarnEdit extends Component {
           </FormGroup>
           <br />
               <Button size="lg" 
-              color="info" className="btn-update header-line" type="submit">
+               className="btn-update header-line" type="submit">
                 Submit Changes
             </Button>{" "}
              
