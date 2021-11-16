@@ -63,7 +63,7 @@ class Login extends React.Component {
         <h1 className="header-line">Login</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="email" className="mr-sm-2 header-line">
+            <Label for="email" className="mr-sm-2 header-line login-signup-body">
               Email
             </Label>
             <Input
@@ -77,7 +77,7 @@ class Login extends React.Component {
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="password" className="mr-sm-2 header-line">
+            <Label for="password" className="mr-sm-2 header-line login-signup-body">
               Password
             </Label>
             <Input
@@ -91,7 +91,7 @@ class Login extends React.Component {
             />
           </FormGroup>
 
-          <Button type="submit" color="transparent" className="header-line">
+          <Button size='lg' type="submit" color="transparent" className="header-line">
             Login
           </Button>
         </Form>

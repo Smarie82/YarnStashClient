@@ -16,6 +16,7 @@ import { Collapse,
   import '../assets/main.css';
   import { Link } from 'react-router-dom';
 
+
     class YarnStashNav extends Component {
       constructor(props) {
         super(props);
@@ -66,9 +67,11 @@ import { Collapse,
                       </Link>
                     </DropdownMenu>
                   </UncontrolledDropdown>
+                  <Link to='/about' className="btn-about"> 
                   <NavItem>
-                    <NavLink href="/about/" className="body-text">About</NavLink>
+                    <NavLink  className="body-text">About</NavLink>
                   </NavItem>
+                  </Link>
                 </Nav>
                
                 <Button onClick={this.logout} size="lg" className="header-line" color="transparent">Logout</Button>

@@ -59,7 +59,7 @@ class Signup extends Component {
         <h1 className="header-line">Sign Up</h1>
         <Form onSubmit={this.handleSubmit} inline>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="fullname" className="mr-sm-2 header-line">
+            <Label for="fullname" className="mr-sm-2 header-line login-signup-body">
               Full Name
             </Label>
             <Input
@@ -76,7 +76,7 @@ class Signup extends Component {
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="email" className="mr-sm-2 header-line">
+            <Label for="email" className="mr-sm-2 header-line login-signup-body">
               Email
             </Label>
             <Input
@@ -93,7 +93,7 @@ class Signup extends Component {
             />
           </FormGroup>
           <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-            <Label for="password" className="mr-sm-2 header-line">
+            <Label for="password" className="mr-sm-2 header-line login-signup-body">
               Password
             </Label>
             <Input
@@ -109,7 +109,7 @@ class Signup extends Component {
               required
             />
           </FormGroup>
-          <Button className="header-line" color="tranparent" type="submit">
+          <Button size='lg' className="header-line" color="transparent" type="submit">
             Signup
           </Button>
         </Form>

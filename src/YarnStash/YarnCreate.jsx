@@ -68,6 +68,7 @@ class YarnCreate extends Component {
         <br />
         <Form className="body-text" onSubmit={this.handleSubmit}>
           <FormGroup row>
+            <br />
             <h1 className="header-line">Stash your Yarn here!</h1>
             <br />
             <p className="body=text">

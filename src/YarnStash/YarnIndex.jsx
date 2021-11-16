@@ -3,6 +3,7 @@ import { Container, Col} from 'reactstrap';
 import YarnCreate from "../YarnStash/YarnCreate";
 import YarnTable from "../YarnStash/YarnTable";
 import APIURL from '../helpers/environment';
+import YarnSearch from "./YarnSearch";
 
 class YarnIndex extends Component {
    constructor(props) {
@@ -32,6 +33,8 @@ class YarnIndex extends Component {
         render() { 
         return ( 
             <Container>
+                <br />
+                <YarnSearch />
                 <Col>
                     <YarnCreate fetchYarns={this.fetchYarns} />
                     {this.state.index.length > 0 ? <YarnTable index={this.state.index} fetchYarns={this.fetchYarns} /> : null}

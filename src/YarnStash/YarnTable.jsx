@@ -19,11 +19,11 @@ class YarnTable extends Component {
     this.state = { yarn: "" };
     this.yarnMapper = this.yarnMapper.bind(this);
   }
-
+  
   yarnMapper() {
     return this.props.index.map((yarn, index) => (
       
-        <Card key={index} className="body-text" outline  style={{ width: "18rem" }}>
+      <Card key={index} className="body-text" outline  style={{ width: "18rem" }}>
           <CardBody>
           <CardText>Brand: {yarn.brand}</CardText>
             <CardText>Color: {yarn.color}</CardText>
@@ -38,14 +38,16 @@ class YarnTable extends Component {
           </CardFooter>
         </Card>
        
-    ));
-  }
-
-  render() {
-    return (
-    <CardDeck style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>{this.yarnMapper()}</CardDeck>
-    )
-  }
-}
+       ));
+      }
+      
+      render() {
+        return (
+          
+          <CardDeck style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>{this.yarnMapper()}</CardDeck>
+          )
+        }
+      }
+      
 
 export default YarnTable;

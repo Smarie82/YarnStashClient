@@ -16,7 +16,7 @@ class Home extends Component {
             <div>
                <Container>
                    <Col>
-
+                <br />
                 <h1 className='header-line'>Hello Stitcher!</h1>
                 <br />
                 <h3 className="body-text">
@@ -30,8 +30,8 @@ class Home extends Component {
                 <h3 className="body-text">
                     To get started with your stash, select which stash you want to start and fill out the form with details of your yarn or post the link to a digital pattern you want to keep track of. 
                 </h3>
-               
-
+                <br />
+                <br />
                    </Col>
                </Container>
                <br />

@@ -24,8 +24,8 @@
     background: none !important;
     border-color: transparent !important;
     font-size: 400% !important;
-    padding-right: 10% !important;
-    padding-left: 10% !important;
+    padding-right: 2% !important;
+    padding-left: 18% !important;
     color:white !important;
 }
 .btn-pattern {
@@ -36,4 +36,9 @@
 
 .btn-drop {
     text-decoration: none;
+}
+
+.btn-about {
+    text-decoration: none;
+    
 }

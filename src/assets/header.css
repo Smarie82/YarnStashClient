@@ -32,6 +32,10 @@ body {
     font-weight: bold;
 }
 
+.login-signup-body {
+    font-size: 125%;
+}
+
 /* Footer styling */
 
 .pad-foot {
